@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id='view_school_student_tree' model='ir.ui.view'>
+        <field name='name'>school.student.tree</field>
+        <field name='model'>school.student</field>
+        <field name='arch' type='xml'>
+            <tree>
+                <field name='name'/>
+                <field name='birthdate'/>
+                <field name='age'/>
+                <field name='born_city'/>
+                <field name='final_exam_grade'/>
+            </tree>
+        </field>
+    </record>
+
+    <record id='view_school_student_form' model='ir.ui.view'>
+      <field name='name'>school.student.tree</field>
+      <field name='model'>school.student</field>
+      <field name='arch' type='xml'>
+          <form>
+            <group>
+              <group string="Datos">
+                <field name="name"/>
+                <field name="birthdate"/>
+                <field name="age"/>
+                <field name="final_exam_grade"/>
+                <field name="doc_type"/>
+                <field name="doc_number"/>
+                <field name="born_city"/>
+              </group>
+              <group string="Materias">
+                <field name="subject_ids"/>
+              </group>
+            </group>  
+      </form>
+      </field>
+  </record>
+
+
+    <record id='action_school_student' model='ir.actions.act_window'>
+        <field name='name'>Estudiantes</field>
+        <field name='type'>ir.actions.act_window</field>
+        <field name='res_model'>school.student</field>
+        <field name='view_mode'>tree,form</field>
+    </record>
+
+    <menuitem id='menu_school_student'
+              name='Estudiantes'
+              parent='menu_school_root'
+              action='action_school_student'
+              sequence='12'/>
+</odoo>
